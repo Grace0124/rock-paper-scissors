@@ -29,8 +29,34 @@ function playRound() {
                 console.log("Win");
                 break;
         }
-
     }
+    if (playerSelection == 'paper'){
+        switch(computerSelection) {
+            case 'paper':
+                console.log("Tie");
+                break;
+            case 'scissors':
+                console.log("Lose");
+                break;
+            case 'rock':
+                console.log("Win");
+                break;
+        }
+    }
+    if (playerSelection == 'scissors'){
+        switch(computerSelection) {
+            case 'scissors':
+                console.log("Tie");
+                break;
+            case 'rock':
+                console.log("Lose");
+                break;
+            case 'paper':
+                console.log("Win");
+                break;
+        }
+    }
+
 
 }
 
