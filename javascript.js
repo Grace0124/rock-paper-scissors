@@ -11,8 +11,9 @@ function getComputerChoice() {
     return computerSelection;
 }
 
+//player choice and computer choice is compared and a result
+//is declared
 function playRound(playerSelection, computerSelection) {
-    //player selects rock, paper, or scissors
     if (playerSelection == 'rock'){
         switch(computerSelection) {
             case 'rock':
@@ -46,15 +47,12 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-playerSelection = prompt("Choose Rock, Paper, or Scissors").toLowerCase();
-computerSelection = getComputerChoice();
+let playerWins = 0;
+let computerWins = 0;
 
-//actual game
-function game() {
-
-    let playerWins = 0;
-    let computerWins = 0;
-
+function fullRound() {
+    playerSelection = prompt("Choose Rock, Paper, or Scissors").toLowerCase();
+    computerSelection = getComputerChoice();
     //play a round
     let round = playRound(playerSelection, computerSelection);
     console.log(round);
@@ -68,7 +66,17 @@ function game() {
     }
 
 
+}
 
+
+
+//actual game
+function game() {
+    fullRound();
+    fullRound();
+    fullRound();
+    fullRound();
+    fullRound();
     //after 5 games, check if person wins > computer wins.
 
 
