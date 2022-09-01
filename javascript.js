@@ -1,19 +1,23 @@
-//computer chooses rock, paper, or scissors
-function getComputerChoice() {
-    let x = Math.floor(Math.random()*3);
-    if (x == 0) {
-        return 'Rock';
-    } else if (x == 1) {
-        return 'Paper';
-    } else {
-        return 'Scissors';
+function playRound() {
+    let computerSelection;
+    //computer chooses rock, paper, or scissors
+    function getComputerChoice() {
+        let x = Math.floor(Math.random()*3);
+        if (x == 0) {
+            computerSelection = 'rock';
+        } else if (x == 1) {
+            computerSelection = 'paper';
+        } else {
+            computerSelection = 'scissors';
     }
 }
+    //player selects rock, paper, or scissors
+    playerSelection = prompt("Choose Rock, Paper, or Scissors").toLowerCase();
+    
 
-console.log(getComputerChoice())
+}
 
-//player selects rock, paper, or scissors
-
+playRound();
 //declare winner
 
 
