@@ -9,11 +9,28 @@ function playRound() {
             computerSelection = 'paper';
         } else {
             computerSelection = 'scissors';
+        }
+        return computerSelection;
     }
-}
+    getComputerChoice();
+    console.log(computerSelection);
+
     //player selects rock, paper, or scissors
     playerSelection = prompt("Choose Rock, Paper, or Scissors").toLowerCase();
-    
+    if (playerSelection == 'rock'){
+        switch(computerSelection) {
+            case 'rock':
+                console.log("Tie");
+                break;
+            case 'paper':
+                console.log("Lose");
+                break;
+            case 'scissors':
+                console.log("Win");
+                break;
+        }
+
+    }
 
 }
 
