@@ -11,7 +11,6 @@ function getComputerChoice() {
     return computerSelection;
 }
 
-
 function playRound(playerSelection, computerSelection) {
     //player selects rock, paper, or scissors
     if (playerSelection == 'rock'){
@@ -50,10 +49,29 @@ function playRound(playerSelection, computerSelection) {
 playerSelection = prompt("Choose Rock, Paper, or Scissors").toLowerCase();
 computerSelection = getComputerChoice();
 
-console.log(playRound(playerSelection, computerSelection));
-//declare winner
-
-
-
 //actual game
-//play a round. use a counter to keep score
+function game() {
+
+    let playerWins = 0;
+    let computerWins = 0;
+
+    //play a round
+    let round = playRound(playerSelection, computerSelection);
+    console.log(round);
+
+    //if win, person wins increases by 1.
+    //if lose, computer wins increases by 1.
+    if (round == "Win") {
+        playerWins += 1;
+    } else if (round == "Lose") {
+        computerWins += 1;
+    }
+
+
+
+    //after 5 games, check if person wins > computer wins.
+
+
+}
+
+game();
