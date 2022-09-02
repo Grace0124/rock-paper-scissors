@@ -65,6 +65,7 @@ function fullRound() {
     } else if (round == "Lose") {
         computerWins += 1;
     }
+    console.log(`You have ${playerWins} wins. The computer has ${computerWins} wins.`);
 }
 
 //actual game
@@ -78,7 +79,7 @@ function game() {
     if (playerWins > computerWins) {
         return "You Won!";
     } else {
-        return "You Lost!"
+        return "You Lost!";
     }
 }
 
