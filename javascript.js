@@ -56,6 +56,7 @@ function fullRound() {
     //play a round
     let round = playRound(playerSelection, computerSelection);
     console.log(round);
+    console.log(`You chose ${playerSelection}. The computer chose ${computerSelection}.`);
 
     //if win, person wins increases by 1.
     //if lose, computer wins increases by 1.
@@ -64,11 +65,7 @@ function fullRound() {
     } else if (round == "Lose") {
         computerWins += 1;
     }
-
-
 }
-
-
 
 //actual game
 function game() {
@@ -78,8 +75,11 @@ function game() {
     fullRound();
     fullRound();
     //after 5 games, check if person wins > computer wins.
-
-
+    if (playerWins > computerWins) {
+        return "You Won!";
+    } else {
+        return "You Lost!"
+    }
 }
 
-game();
+console.log(game());
