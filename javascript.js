@@ -68,19 +68,79 @@ function fullRound() {
     console.log(`You have ${playerWins} wins. The computer has ${computerWins} wins.`);
 }
 
-//actual game
-function game() {
-    fullRound();
-    fullRound();
-    fullRound();
-    fullRound();
-    fullRound();
-    //after 5 games, check if person wins > computer wins.
+function results(playerSelection, computerSelection) {
+    let round = playRound(playerSelection, computerSelection);
+    if (round == "Win") {
+        playerWins += 1;
+    } else if (round == "Lose") {
+        computerWins += 1;
+    }
+    text = `You chose ${playerSelection}. The computer chose ${computerSelection}.  
+            You ${round}. 
+            You have ${playerWins} wins. The computer has ${computerWins} wins.`
+
+    return text;
+}
+
+function endGame(playerWins, computerWins) {
     if (playerWins > computerWins) {
-        return "You Won!";
+        winner.textContent = "Congrats, you won!"
     } else {
-        return "You Lost!";
+        winner.textContent = "You lost, better luck next time!"
     }
 }
 
-console.log(game());
+
+//actual game
+function game() {
+    
+    let numGames = 0;
+
+    const rockButton = document.querySelector('#rock');
+    const paperButton = document.querySelector('#paper');
+    const scissorsButton = document.querySelector('#scissors');
+    const div = document.querySelector('#results');
+    const winner = document.querySelector('#winner');
+
+    rockButton.addEventListener('click', function(e) {
+        playerSelection = 'rock';
+        computerSelection = getComputerChoice();
+        results(playerSelection, computerSelection);
+        div.textContent = text;
+        numGames += 1;
+        if (playerWins >= 5 || computerWins >= 5) {
+            endGame(playerWins, computerWins);
+            return;
+        }
+    })
+
+    paperButton.addEventListener('click', function(e) {
+        playerSelection = 'paper';
+        computerSelection = getComputerChoice();
+        results(playerSelection, computerSelection);
+        div.textContent = text;
+        numGames += 1;
+        if (playerWins >= 5 || computerWins >= 5) {
+            endGame(playerWins, computerWins);
+            return;
+        }
+    })
+
+    scissorsButton.addEventListener('click', function(e) {
+        playerSelection = 'scissors';
+        computerSelection = getComputerChoice();
+        results(playerSelection, computerSelection);
+        div.textContent = text;
+        numGames += 1;
+        if (playerWins >= 5 || computerWins >= 5) {
+            endGame(playerWins, computerWins);
+            return;
+        }
+    })
+}
+
+
+
+
+
+game();
